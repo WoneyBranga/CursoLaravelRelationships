@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Location extends Model
 {
+    protected $fillable = [
+        'latitude',
+        'longitude',
+    ];
+
     public function country()
     {
         return $this->belongsTo(Country::class);

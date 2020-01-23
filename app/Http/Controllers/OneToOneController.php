@@ -44,9 +44,9 @@ class OneToOneController extends Controller
         $longitude = 456;
 
         $location = Location::where('latitude', $latitude)
-                                ->where('longitude', $longitude)
-                                ->get()
-                                ->first();
+        ->where('longitude', $longitude)
+        ->get()
+        ->first();
         echo $location->id . PHP_EOL;
 
         # Modo 01 filtrando pelo ID
@@ -57,6 +57,36 @@ class OneToOneController extends Controller
         $country = $location->country;
         echo "Location Id: " . $location->id . PHP_EOL;
         echo "Country: " . $country->name . PHP_EOL;
+    }
+
+    public function oneToOneInsert()
+    {
+        $dataForm = [
+            'name' => 'Uruguai',
+            'latitude' => 444,
+            'longitude' => 555,
+        ];
+
+        $country = Country::create($dataForm);
+
+        # Podemos em no lugar de criar uma nova country, recuperar uma exsitente para carregar location...
+        # Ex:
+        # $country = Country::where('name', 'Brasil')->get()->first();
+
+        # Modo 00 - create location NAO FUNFOU (SQLSTATE[HY000]: General error: 1364 Field 'country_id' doesn't have a default value (SQL: insert into `locations` (`latitude`, `longitude`, `updated_at`, `created_at`) values (333, 444, 2020-01-23 20:34:12, 2020-01-23 20:34:12)))
+        #$dataForm['country_id'] = $country->id;
+        #$location = Location::create($dataForm);
+
+        ## Modo 01 - create location
+        #$location = new Location;
+        #$location->latitude = $dataForm['latitude'];
+        #$location->longitude = $dataForm['longitude'];
+        #$location->country_id = $country->id;
+        #$saveLocation = $location->save();
+
+        # Modo 02
+        $location = $country->location()->create($dataForm);
+
 
     }
 }
