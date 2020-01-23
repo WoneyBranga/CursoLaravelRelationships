@@ -35,4 +35,28 @@ class OneToOneController extends Controller
         echo "Latitude: " . $location->latitude . PHP_EOL;
         echo "Longitude: " . $location->longitude . PHP_EOL;
     }
+
+    public function oneToOneInverse()
+    {
+        # Modo 00 - filtrando por lat/long
+
+        $latitude = 123;
+        $longitude = 456;
+
+        $location = Location::where('latitude', $latitude)
+                                ->where('longitude', $longitude)
+                                ->get()
+                                ->first();
+        echo $location->id . PHP_EOL;
+
+        # Modo 01 filtrando pelo ID
+        $location = Location::find(2);
+        echo $location->id . PHP_EOL;
+
+        # Modo 02 - trazendo nome do pais...
+        $country = $location->country;
+        echo "Location Id: " . $location->id . PHP_EOL;
+        echo "Country: " . $country->name . PHP_EOL;
+
+    }
 }
