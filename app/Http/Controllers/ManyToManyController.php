@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\City;
+use App\Models\Company;
 
 class ManyToManyController extends Controller
 {
@@ -16,5 +17,19 @@ class ManyToManyController extends Controller
         foreach ($companies as $company) {
             echo $company->name . PHP_EOL;
         }
+    }
+
+
+    function ManyToManyInverse()
+    {
+        $company = Company::where('name', 'SuporteTop')->get()->first();
+        echo 'Empresa: ' . $company->name . PHP_EOL;
+
+        $cities = $company->cities;
+        foreach ($cities as $city) {
+            echo ' - Cidades: ' . $city->name . PHP_EOL;
+        }
+
+
     }
 }

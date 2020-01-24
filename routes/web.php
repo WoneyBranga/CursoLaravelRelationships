@@ -24,7 +24,8 @@ Route::get('has-many-through', 'OneToManyController@hasManyThrough');
 /**
  * Many To Many
  */
-Route::get('many-to-many', 'ManyToManyController@ManyToMany');
+Route::get('many-to-many', 'ManyToManyController@manyToMany');
+Route::get('many-to-many-inverse', 'ManyToManyController@manyToManyInverse');
 
 
 

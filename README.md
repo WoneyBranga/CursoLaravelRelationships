@@ -25,7 +25,7 @@ php artisan make:controller OneToOneController
 php artisan make:controller OneToManyController
 
 php artisan make:model Models\\State -m
-
+artisan
 php artisan make:model Models\\City -m
 ```
 
@@ -34,7 +34,7 @@ php artisan make:model Models\\City -m
 ```bash
 php artisan make:model Models\\Company -m
 
-php artisan make:migration create_company_city_table
+php  make:migration create_company_city_table
 ```
 
 # Aula 14 Relacionamento Many To Many
