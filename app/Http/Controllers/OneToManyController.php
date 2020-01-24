@@ -76,4 +76,28 @@ class OneToManyController extends Controller
 
         }
 
+        public function oneToManyInsert()
+        {
+            $dataForm = [
+                'name' => 'Bahia',
+                'initials' => 'BA',
+            ];
+
+            $country = Country::find(1);
+
+            $insertState = $country->states()->create($dataForm);
+            dd($insertState);
+        }
+
+        public function oneToManyInsertTwo()
+        {
+            $dataForm = [
+                'name' => 'Acre',
+                'initials' => 'AC',
+                'country_id' => 1,
+            ];
+
+            $insertState = State::create($dataForm);
+            dd($insertState);
+        }
     }
