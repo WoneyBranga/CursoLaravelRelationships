@@ -28,3 +28,11 @@ php artisan make:model Models\\State -m
 
 php artisan make:model Models\\City -m
 ```
+
+# Aula 13 criando Model Company
+
+```bash
+php artisan make:model Models\\Company -m
+
+php artisan make:migration create_company_city_table
+```
