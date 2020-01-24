@@ -11,3 +11,20 @@ php artisan make:model Models\\Country -m
 # Criando Model + migration Location
 php artisan make:model Models\\Location -m
 ```
+
+# Aula 03 criando controller OneToOne
+
+```bash
+php artisan make:controller OneToOneController
+```
+
+
+# Aula 06 criando controller OneToMany
+
+```bash
+php artisan make:controller OneToManyController
+
+php artisan make:model Models\\State -m
+
+php artisan make:model Models\\City -m
+```
