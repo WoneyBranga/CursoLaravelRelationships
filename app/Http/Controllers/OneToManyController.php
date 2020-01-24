@@ -28,8 +28,7 @@ class OneToManyController extends Controller
             // }
 
 
-            $countries = Country::where('name', 'LIKE', '%a%')->get();
-
+            $countries = Country::where('name', 'LIKE', '%a%')->with('states')->get();
             foreach ($countries as $country) {
                 echo '-----------' . PHP_EOL;
                 echo $country->name . PHP_EOL;
