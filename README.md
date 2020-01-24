@@ -36,3 +36,13 @@ php artisan make:model Models\\Company -m
 
 php artisan make:migration create_company_city_table
 ```
+
+# Aula 14 Relacionamento Many To Many
+
+```bash
+php artisan make:controller ManyToManyController
+```
+
+Um ponto inportante, quando criar tabelas pivot, deve-se respeitar ordem aufabética das tabelas relacionadas. 
+No nosso caso Tabelas company e city.
+deveriamos ter criado migration para city_company e nao para company_city como realizado.
