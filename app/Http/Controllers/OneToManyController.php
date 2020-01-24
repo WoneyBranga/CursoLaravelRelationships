@@ -24,24 +24,36 @@ class OneToManyController extends Controller
         // # $states = $country->states()->where('initials','NOT LIKE','sc')->get();
 
         // foreach ($states as $state) {
-        //     echo $state->initials . ' - ' . $state->name . PHP_EOL;
-        // }
+            //     echo $state->initials . ' - ' . $state->name . PHP_EOL;
+            // }
 
 
-        $countries = Country::where('name', 'LIKE', '%a%')->get();
+            $countries = Country::where('name', 'LIKE', '%a%')->get();
 
-        foreach ($countries as $country) {
-            echo '-----------' . PHP_EOL;
-            echo $country->name . PHP_EOL;
-            echo '-----------' . PHP_EOL;
+            foreach ($countries as $country) {
+                echo '-----------' . PHP_EOL;
+                echo $country->name . PHP_EOL;
+                echo '-----------' . PHP_EOL;
 
-            $states = $country->states;
-            foreach ($states as $state) {
-                echo $state->initials . ' - ' . $state->name . PHP_EOL;
+                $states = $country->states;
+                foreach ($states as $state) {
+                    echo $state->initials . ' - ' . $state->name . PHP_EOL;
+                }
             }
+        }
+
+        public function manyToOne()
+        {
+            $stateName = 'São Paulo';
+            $state = State::where('name', $stateName)->get()->first();
+
+            echo 'Estado: ' . $state->name . PHP_EOL;
+
+            $country = $state->country;
+            #$country = $state->country()->get()->first();
+
+            echo 'Pais: ' . $country->name . PHP_EOL;
 
         }
 
-
     }
-}
