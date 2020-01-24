@@ -46,3 +46,12 @@ php artisan make:controller ManyToManyController
 Um ponto inportante, quando criar tabelas pivot, deve-se respeitar ordem aufabética das tabelas relacionadas. 
 No nosso caso Tabelas company e city.
 deveriamos ter criado migration para city_company e nao para company_city como realizado.
+
+
+# Aula 17 Relacionamento Polymorphic
+
+```bash
+php artisan make:controller PolymorphicController
+
+php artisan make:model Models\\Comment -m
+```
