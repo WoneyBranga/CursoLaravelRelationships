@@ -18,4 +18,9 @@ class Country extends Model
         # Ex:
         #return $this->hasOne(Location::class, 'country_id', 'id');
     }
+
+    public function states()
+    {
+        return $this->hasMany(State::class);
+    }
 }

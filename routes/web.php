@@ -10,7 +10,7 @@ Route::get('one-to-one-insert', 'OneToOneController@oneToOneInsert');
 /**
  * One To Many
  */
-Route::get('one-to-many', 'OneToMany@oneToMany');
+Route::get('one-to-many', 'OneToManyController@oneToMany');
 
 
 Route::get('/', function () {
