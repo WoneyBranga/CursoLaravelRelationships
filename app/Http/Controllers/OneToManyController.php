@@ -41,6 +41,27 @@ class OneToManyController extends Controller
             }
         }
 
+        public function oneToManyTwo()
+        {
+
+            $countries = Country::where('name', 'LIKE', '%a%')->with('states')->get();
+            foreach ($countries as $country) {
+                echo '-----------' . PHP_EOL;
+                echo $country->name . PHP_EOL;
+                echo '-----------' . PHP_EOL;
+
+                $states = $country->states;
+                foreach ($states as $state) {
+                    echo $state->initials . ' - ' . $state->name . PHP_EOL;
+
+                    foreach ($state->cities as $city) {
+                        echo ' >> ' . $city->name . PHP_EOL;
+                    }
+                }
+            }
+        }
+
+
         public function manyToOne()
         {
             $stateName = 'São Paulo';
