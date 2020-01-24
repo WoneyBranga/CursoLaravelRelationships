@@ -12,6 +12,33 @@ class PolymorphicController extends Controller
 {
     public function polymorphic()
     {
+        // $city = City::where('name', 'PALHOÇA')->get()->first();
+        // echo 'Cidade: ' . $city->name . PHP_EOL;
+
+        // $comments = $city->comments()->get();
+
+        // foreach ($comments as $comment) {
+        //     echo "  - Comment: " . $comment->description . PHP_EOL;
+        // }
+###
+        // $state = State::where('initials', 'SC')->get()->first();
+        // echo 'Estado: ' . $state->name . PHP_EOL;
+
+        // $comments = $state->comments()->get();
+
+        // foreach ($comments as $comment) {
+        //     echo "  - Comment: " . $comment->description . PHP_EOL;
+        // }
+
+        $country = Country::where('name', 'Brasil')->get()->first();
+        echo 'País: ' . $country->name . PHP_EOL;
+
+        $comments = $country->comments()->get();
+
+        foreach ($comments as $comment) {
+            echo "  - Comment: " . $comment->description . PHP_EOL;
+        }
+
 
     }
 
